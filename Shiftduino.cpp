@@ -65,6 +65,16 @@ void Shiftduino::setPins(boolean values[]){
   writeValues();
 }
 
+//set all pins HIGH or LOW
+void Shiftduino::setPins(uint64_t values){
+  for(int i = 0; i < _numOfRegisterPins; i++){
+    _registers[i] = values & 0x00000001;
+	values >>= 1;
+  }
+
+  //set pins
+  writeValues();
+}
 
 //Set and display registers
 //Only call AFTER all values are set how you would like (slow otherwise)
@@ -82,6 +92,5 @@ void Shiftduino::writeValues(){
 
   }
   digitalWrite(_latchPin, HIGH);
-
 }
 

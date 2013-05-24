@@ -15,6 +15,7 @@ class Shiftduino
 		void clear();
 		void setPin(int index, int value);
 		void setPins(boolean values[]);
+		void setPins(uint64_t values);
 
 	private:
 		void writeValues();
