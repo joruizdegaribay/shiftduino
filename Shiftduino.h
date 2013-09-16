@@ -14,6 +14,7 @@ class Shiftduino
 		Shiftduino(uint8_t dataPin, uint8_t clockPin, uint8_t latchPin, uint8_t numOfRegisters);
 		void clear();
 		void setPin(int index, int value);
+		void setPin(int registerNum, int index, int value);
 		void setPins(boolean values[]);
 		void setPins(uint64_t values);
 

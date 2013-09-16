@@ -54,6 +54,15 @@ void Shiftduino::setPin(int index, int value){
   writeValues();
 }
 
+//set an individual pin HIGH or LOW, specifiying the register number
+void Shiftduino::setPin(int registerNum, int index, int value){
+  finalIndex = (registerNum * _numOfRegisterPins) + index;
+  _registers[finalIndex] = value;
+
+  //set pins
+  writeValues();
+}
+
 
 //set all pins HIGH or LOW
 void Shiftduino::setPins(boolean values[]){
